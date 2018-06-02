@@ -1,0 +1,16 @@
+{
+    "name": "arm-crawler",
+
+    "autoload": {
+        "psr-4": {
+            "Arm\\Crawler\\": "src"
+        }
+    },
+
+    "require": {
+        "fabpot/goutte": "^3.2",
+        "knplabs/github-api": "^2.8",
+        "php-http/guzzle6-adapter": "^1.1"
+    }
+
+}
