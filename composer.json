@@ -1,5 +1,5 @@
 {
-    "name": "arm-crawler",
+    "name": "arm/crawler",
 
     "autoload": {
         "psr-4": {
