@@ -10,7 +10,11 @@
     "require": {
         "fabpot/goutte": "^3.2",
         "knplabs/github-api": "^2.8",
-        "php-http/guzzle6-adapter": "^1.1"
+        "php-http/guzzle6-adapter": "^1.1",
+        "toin0u/digitalocean-v2": "~2.0",
+        "kriswallsmith/buzz": "~0.10",
+        "guzzlehttp/guzzle": "~6.0",
+        "aws/aws-sdk-php": "^3.60"
     }
 
 }
