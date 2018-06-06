@@ -13,11 +13,23 @@ use Aws\Credentials\Credentials;
 use Aws\S3\S3Client;
 use Aws\S3\MultipartUploader;
 use Aws\Exception\MultipartUploadException;
+use Exception;
 
 class Upload {
 
+    /**
+     * Instance of the s3 client
+     *
+     * @var \Aws\S3\S3Client
+     */
     protected $s3Client;
 
+    /**
+     * __construct
+     *
+     * @param string $awsAccessKeyId
+     * @param string $awsSecretAccessKey
+     */
     public function __construct($awsAccessKeyId, $awsSecretAccessKey)
     {
         $awsCredentials = new Credentials($awsAccessKeyId, $awsSecretAccessKey);
@@ -28,6 +40,14 @@ class Upload {
         ]);
     }
 
+    /**
+     * Uploads a file to s3
+     *
+     * @param string $file
+     * @param string] $dest
+     * @param string $fileType
+     * @return void
+     */
     public function upload($file, $dest, $fileType)
     {
         $uploader = new MultipartUploader($this->s3Client, $file, [
@@ -37,10 +57,8 @@ class Upload {
         
         try {
             $result = $uploader->upload();
-            //echo "Upload complete: {$result['ObjectURL']}\n";
         } catch (MultipartUploadException $e) {
-            echo $e->getMessage() . "\n";
-            return false;
+            throw new Exception($e->getMessage(), 1528312013);
         }
         return true;
     }
